@@ -1,7 +1,7 @@
 ## Web Development - Lesson 2
 
 ### Introduction
-
+### Lexi Weihe
 ### Demo
   * JS and CSS separated into own files
   * Citing code
