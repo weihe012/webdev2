@@ -34,13 +34,13 @@ var airportIcon = L.icon({
 //add custom airport layer
 var customLayer = L.geoJson(null , {
     pointToLayer: function(feature, latlng){
-        return L.marker(latlng,{icon: airportIcon});
+        return L.marker(latlng,{icon:airportIcon});
     }
 });
 
 
 // FIXME: Load CSV data into leaflet markers
-var airportsLayer= ominvore.csv('airports.csv', null, customLayer);
+var airportsLayer = omnivore.csv('airports.csv', null, customLayer);
 
     airportsLayer.addTo(map);
 
