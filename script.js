@@ -24,8 +24,25 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 })
     // use the .addTo method to add the tile layer to the map.
     .addTo(map);
+//making leaflet airport icon
+//ref: https://maptimeboston.github.io/leaflet-intro/
+var airportIcon = L.icon({
+    iconUrl: 'airport.png',
+    iconSize: [30,30]
+  }); 
+
+//add custom airport layer
+var customLayer = L.geoJson(null , {
+    pointToLayer: function(feature, latlng){
+        return L.marker(latlng,{icon: airportIcon});
+    }
+});
+
 
 // FIXME: Load CSV data into leaflet markers
-ominvore.csv('airports.csv').addTo(map);
+var airportsLayer= ominvore.csv('airports.csv', null, customLayer);
+
+    airportsLayer.addTo(map);
+
 // FIXME: Add styling to markers
 // Use airport.png
